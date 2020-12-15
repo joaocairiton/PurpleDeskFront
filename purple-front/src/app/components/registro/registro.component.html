@@ -1,0 +1,64 @@
+<div class="container">
+    <form>
+        <div class="card-header">
+            <div id="nomeOrdem" class="col-8" style="font-size: 30px; font-weight: bolder; color: rgb(82, 80, 80);">
+                    Criar Novo Registro!
+                </div>
+        </div>
+        
+        <div class="alter alter-primary" relo="alert">
+            {{mens}}
+        </div>
+    
+        <div class="card-body" style="background-color: #9C9C9C;">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputNome">Nome</label>
+                    <input type="text" class="form-control" name="inputNome" [(ngModel)]="objeto.nome">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="inputCpfCnpj">CPF / CNPJ</label>
+                    <input type="text" class="form-control" placeholder="000.000.000-00 ou 00.000.000/0000-00" name="inputCpfCnpj" id="inputCpfCnpj" [(ngModel)]="objeto.cpfCnpj">
+                </div>
+                <div class="form-group col-md-4"> 
+                    <label>Telefone</label> 
+                    <input type="text" class="form-control" placeholder="(00) 00000-0000" name="inputTelefone" id="inputTelefone" [(ngModel)]="objeto.telefone" >
+                </div>
+                    
+                <div class="form-group col-md-5">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" placeholder="nome@email.com" name="inputEmail" [(ngModel)]="objeto.email">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputFuncao">Função</label>
+                    <input type="text" class="form-control" name="inputFuncao" [(ngModel)]="objeto.funcao">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputLogin">Login</label>
+                    <input type="text" class="form-control" name="inputLogin" [(ngModel)]="objeto.login">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputSenha">Senha</label>
+                    <input type="password" class="form-control" name="inputSenha" [(ngModel)]="objeto.senha">
+                    
+                </div>
+                <div hidden class="form-group col-md-4">
+                    <label for="inputPerfil">Perfil</label>
+                    <select class="form-control" name="inputPerfil" id="inputPerfil">
+                        <option [(ngModel)]="objeto.perfil" selected disabled value="Cliente" >Cliente</option>
+                    </select>
+                </div> 
+            </div>
+            <div id="botao">
+                <div class="col-md-14" style="padding-left: 1000px;margin-bottom: 10px;margin-top: 20px; position: relative;">
+                    <button type="button" style="position:-ms-page;"  class="btn btn-primary"  (click)="adicionar()">Salvar</button>
+                </div>
+                <div id="login-link" class="text-right">
+                    <a routerLink="/login" style="background-color: rgb(182, 181, 181);" class="text-info">Voltar ao Login.</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

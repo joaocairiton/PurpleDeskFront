@@ -1,0 +1,118 @@
+<div class="container">
+    <form>
+        <div class="card-header">
+            <div id="nomeOrdem" class="col-8" style="font-size: 30px; font-weight: bolder; color: rgb(82, 80, 80);">
+                    Ordem de Serviço - Admin
+                </div>
+        </div>
+        
+        <div class="alter alter-primary" relo="alert">
+            {{mens}}
+        </div>
+    
+        <div class="card-body" style="background-color: #9C9C9C;">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputDescrServ">Descrição da O. de Serviço</label>
+                    <input type="text" class="form-control" name="inputDescrServ" [(ngModel)]="objeto.descricaoServ">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputLaboratorio">Laboratório</label>
+                    <select class="form-control" name="inputLaboratorio" id="inputLaboratorio" on-change="atribuirLab(d.value)" #d>
+                        <option value="" disabled selected>Selecione o Laboratório/Sala:</option>
+                        <option *ngFor="let objLab of labLista" value="{{objLab.id}}" [selected]="objLab.id === objeto.labNome.id">{{objLab.labNome}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputFuncionario">Funcionário</label>
+                    <select class="form-control" name="inputFuncionario" id="inputFuncionario" on-change="atribuirFunc(b.value)" #b>
+                        <option value="" disabled selected>Selecione o Funcionário:</option>
+                        <option *ngFor="let objFunc of objFunc" value="{{objFunc.id}}" [selected]="objFunc.id === objeto.funcionario.id">{{objFunc.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputCliente">Solicitante / Cliente</label>
+                    <select class="form-control" name="inputCliente" id="inputCliente" on-change="atribuirPes(c.value)" #c>
+                        <option value="" disabled selected>Selecione o Cliente:</option>
+                        <option *ngFor="let objPes of objPes" value="{{objPes.id}}" [selected]="objPes.id === objeto.cliente.id">{{objPes.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputDataEmissao">Data de Emissão</label>
+                    <input type="text" class="form-control" name="inputDataEmissao" id="inputDataEmissao" [(ngModel)]="objeto.dataEmissao">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputDataFechamento">Data de Alteração/Fechamento</label>
+                    <input type="text" class="form-control" name="inputDataFechamento" id="inputDataFechamento" [(ngModel)]="objeto.dataFechamento">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputStatus">Status</label>
+                    <select class="form-control" name="inputStatus" [(ngModel)]="objeto.status">
+                        <option value="Aberto">Aberto</option>
+                        <option value="Executando">Em Execução</option>
+                        <option value="Fechado">Fechado</option>
+                        <option value="Cancelado">Cancelado</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputDescricao">Serviço Realizado</label>
+                    <select class="form-control" name="inputDescricao" id="inputDescricao" on-change="atribuirTipo(a.value)" #a>
+                        <option value="" disabled selected>Selecione o Tipo de Serviço:</option>
+                        <option *ngFor="let objTipo of tipoLista" value="{{objTipo.id}}" [selected]="objTipo.id === objeto.descricao.id">{{objTipo.descricao}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputLocal">Local do Serviço</label>
+                    <select class="form-control" name="inputLocal" id="inputLocal" [(ngModel)]="objeto.local">
+                        <option value="Goiânia - Unidade 1">Goiânia - Unidade 1</option>
+                        <option value="Goiânia - Unidade 2">Goiania - Unidade 2</option>
+                        <option value="Goiânia - Unidade 3">Goiânia - Unidade 3</option>
+                        <option value="Ap. de Goiânia - Unidade 1">Ap. de Goiânia - Unidade 1</option>
+                        <option value="Ap. de Goiânia - Unidade 2">Ap. de Goiânia - Unidade 2</option>
+                        <option value="Anápolis">Anápolis</option>
+                    </select>
+                </div> 
+            </div>
+            <div id="botao">
+                <div class="col-md-14" style="padding-left: 700px;margin-bottom: 20px;">
+                    <button type="button" style="position:-ms-page;" class="btn btn-primary" (click)="adicionar()">Nova O.S. </button> |
+                    <button type="button" style="position:-ms-page;" class="btn btn-warning" (click)="alterar()">Atualizar O.S. </button> |
+                    <button type="button" style="position:-ms-page;" class="btn btn-danger" (click)="excluir()">Excluir O.S. </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body" style="background-color: #9C9C9C; font-size: 12px;">
+                    <table class="table">
+                        <th scope="col"> Código </th>
+                        <th scope="col"> Laboratório </th>
+                        <th scope="col"> Funcionario </th>
+                        <th scope="col"> Cliente </th>
+                        <th scope="col"> Data de Emissão </th>
+                        <th scope="col"> Data de Fechamento </th>
+                        <th scope="col"> Status da Ordem </th>
+                        <th scope="col"> Descrição </th>
+                        <th scope="col"> Descrição do Serviço </th>
+                        <th scope="col"> Local </th>
+                        <tr *ngFor="let objeto of ordemLista">
+                    
+                            <td>{{objeto.id}}</td> 
+                            <td>{{objeto.labNome.labNome}}</td>
+                            <td>{{objeto.funcionario.nome}}</td>
+                            <td>{{objeto.cliente.nome}}</td>
+                            <td>{{objeto.dataEmissao}}</td>
+                            <td>{{objeto.dataFechamento}}</td>
+                            <td>{{objeto.status}}</td>
+                            <td>{{objeto.descricaoServ}}</td>
+                            <td>{{objeto.descricao.descricao}}</td>
+                            <td>{{objeto.local}}</td>
+                            <td><button type="button" class="btn btn-secondary" style="border-color:rgb(41, 40, 40);" (click)="carregarDados(objeto)">Carregar Dados</button></td>
+                        
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

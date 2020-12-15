@@ -1,0 +1,31 @@
+<nav *ngIf="mostrarMenu" id="navbar" class="navbar navbar-expand-lg navbar-dark" >
+    <a id="textopurple" class="text">Purple</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul id="navul" style="font-size: 18px;" class="navbar-nav navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/ordem-admin">Ordem de Serviço</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/pessoa">Cadastrar Pessoa</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" routerLink="/tipo">Tipo de Serviço</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" routerLink="/laboratorio" >Laboratorio/Sala</a>
+        </li>
+        <li>
+          <a class="nav-link" routerLink="/historico">Histórico</a>
+        </li> 
+        <div id="divsair">
+          <button id="botaosair" type="button" style="position:-ms-page;" (click)="sair()" class="btn btn-danger">Sair</button>
+        </div>      
+      </ul>
+    </div>
+        
+  </nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,20 @@
+.navbar {
+    background-color: purple;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    
+}
+#navbarSupportedContent #navul #divsair {
+    padding-left: 500px;
+}
+#navbarSupportedContent #navul #divsair #botaosair{
+    font-size:  20px;
+    background-color: rgb(190, 5, 190);
+    
+}
+.navbar #textopurple{
+    font-size: 40px;
+    margin-right:20px ;
+}

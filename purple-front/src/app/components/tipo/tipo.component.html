@@ -1,0 +1,46 @@
+<div class="container">
+    <form>
+        <div class="card-header">
+            <div id="nomeOrdem" class="col-8" style="font-size: 30px; font-weight: bolder; color: rgb(82, 80, 80);">
+                    Tipo de Serviço
+                </div>
+        </div>
+        
+        <div class="alter alter-primary" relo="alert">
+            {{mens}}
+        </div>
+    
+        <div class="card-body" style="background-color: #9C9C9C;">
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputDescricao">Descrição</label>
+                    <input type="text" class="form-control" name="inputDescricao" [(ngModel)]="objeto.descricao">
+                </div>
+                <div id="botao">
+                <div id="bottonn" class="col-md-14" style="padding-left: 830px; margin-bottom: 20px;">
+                    <button type="button" style="position:-ms-page;" class="btn btn-primary" (click)="adicionar()">Nova Descrição</button> |
+                    <button type="button" style="position:-ms-page;" class="btn btn-warning" (click)="alterar()">Atualizar </button>                </div>
+                </div>
+            </div>
+
+            
+            <div class="card">
+                <div class="card-body" style="background-color: #9C9C9C; font-size: 13px;">
+                    <table class="table">
+                        <th scope="col"> ID </th>
+                        <th scope="col"> Descrição </th>
+                        <tr *ngFor="let objeto of tipo">
+                    
+                            <td>{{objeto.id}}</td> 
+                            <td>{{objeto.descricao}}</td>
+                            <td><button type="button" class="btn btn-secondary" style="border-color:rgb(41, 40, 40);" (click)="carregarDados(objeto)">Carregar Dados</button></td>
+
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

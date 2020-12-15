@@ -1,0 +1,53 @@
+<div class="container">
+    <form>
+        <div class="card-header">
+            <div id="nomeOrdem" class="col-8" style="font-size: 30px; font-weight: bolder; color: rgb(82, 80, 80);">
+                    Histórico
+                </div>
+        </div>
+        
+        <div class="alter alter-primary" relo="alert">
+            {{mens}}
+        </div>
+    
+        <div class="card-body" style="background-color: #9C9C9C;">
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="inputOrdem">Nº da O.S</label>
+                    <input type="text" class="form-control" name="inputOrdem" [(ngModel)]="objeto.ordemId">
+                </div>
+                
+                <div id="botao">
+                <div id="bottonn" class="col-md-14" style="padding-left: 600px; margin-bottom: 20px; padding-top: 60px;">
+                    <button type="button" style="position:-ms-page;" class="btn btn-danger" (click)="excluir()">Excluir </button>
+                
+                </div>
+                </div>
+            </div>
+
+            
+            <div class="card">
+                <div class="card-body" style="background-color: #9C9C9C; font-size: 13px;">
+                    <table class="table">
+                        <th scope="col"> ID </th>
+                        <th scope="col"> Ordem Nº </th>
+                        <th scope="col"> Solicitante/Funcionario </th>
+                        <th scope="col"> Data </th>
+                        <th scope="col"> Status </th>
+                        <tr *ngFor="let objeto of historico">
+                    
+                            <td>{{objeto.id}}</td> 
+                            <td>{{objeto.ordemId.id}}</td>
+                            <td>{{objeto.funcionario.nome}}</td>
+                            <td>{{objeto.dataFechamentoHistorico}}</td>
+                            <td>{{objeto.statusHistorico}}</td>
+                            <td><button type="button" class="btn btn-secondary" style="border-color:rgb(41, 40, 40);" (click)="carregarDados(objeto)">Carregar Dados</button></td>
+
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
